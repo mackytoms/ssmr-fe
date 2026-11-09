@@ -2,7 +2,7 @@
 import { defineAsyncComponent } from 'vue'
 
 const PageContent = defineAsyncComponent(
-  () => import('~/components/pages/home/PageContent.vue')
+  () => import('~/components/pages/Issuance/PageContent.vue')
 )
 </script>
 
