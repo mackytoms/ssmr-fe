@@ -10,7 +10,12 @@ const links = useLinksStore().links
     :templates="['justify-space-between']"
     :class="styl['template']"
   >
-    <template #0><h1>LOGO</h1></template>
+    <template #0>
+      <NuxtImg
+        src="/PrimaryLogo.png"
+        :class="styl['template__logo']"
+      />
+    </template>
     <template #1>
       <ul :class="styl['template__list']">
         <li
@@ -31,6 +36,9 @@ const links = useLinksStore().links
 </template>
 <style lang="stylus" module="styl">
 .template
+  padding: 10px 0
+  &__logo
+    width: 200px
   &__list
     display: flex
     flex-flow: row no-wrap
@@ -38,4 +46,7 @@ const links = useLinksStore().links
     &-item
       margin: 0 10px
       list-style: none
+      &__link
+        color: black
+        text-decoration: none
 </style>
