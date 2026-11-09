@@ -17,7 +17,7 @@ const closeIssuance = () => {
 </script>
 
 <template>
-  <h1>HOME</h1>
+  <h1>Issuance Form</h1>
   <button @click="openIssuance">ADD ISSUANCE</button>
 
   <IssuanceForm
