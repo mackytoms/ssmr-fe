@@ -1,4 +1,9 @@
 <script setup>
+
+
+const cashier_signature = ref('')
+
+
 import SignaturePad from 'signature_pad'
 
 const canvas = ref(null)
@@ -38,6 +43,8 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', resizeCanvas)
   pad?.off()
 })
+
+
 </script>
 <template>
   <div :class="styl['tas']">
@@ -79,26 +86,22 @@ onBeforeUnmount(() => {
                 /> -->
               </template>
               <template #1>
-                <p>
-                  cashier signature
-                  <span>*</span>
-                </p>
-                <p>Ask for the signature of the cashier</p>
-                <canvas
-                  ref="canvas"
-                  :class="styl['tas__body-content__canvas']"
-                />
-                <button
-                  type="button"
-                  @click="clear"
-                >
-                  Clear
-                </button>
+               <SignpadTemplate.vue 
+                  v-model="cashier_signature"
+                  label="cashier signature"
+                  description="Ask for the signature of the cashier"
+                  required
+               />
               </template>
             </InlineTemplate>
           </template>
           <template #1></template>
-        </InlineTemplate>
+        </InlineTemplate
+          v-model="cashier_signature"
+          label="cashier signature"
+          description="Ask for the signature of the cashier"
+          required
+        >
       </div>
     </div>
   </div>
@@ -124,7 +127,7 @@ onBeforeUnmount(() => {
     background-color: #fff
     &-header
       &__heading
-        text-tranform: uppercase
+        text-transform: uppercase
     &-content
       &__canvas
         height: 150px
