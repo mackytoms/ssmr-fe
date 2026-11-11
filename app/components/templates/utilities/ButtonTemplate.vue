@@ -2,7 +2,7 @@
 defineProps({
   templates: {
     type: Array,
-    default: () => ['']
+    default: () => ['primary__button']
   },
   tagType: {
     type: String,
@@ -68,16 +68,19 @@ defineProps({
 
 <style lang="stylus" module="styl">
 .template
- position: relative
+  position: relative
   display: inline-table
   overflow: hidden
   text-align: center
   pointer-events: auto
   transition: .3s ease
-  &--primary-button
+  cursor: pointer
+  &--primary__button
     & ^[0]__link
       background-color: var(--theme_blue)
-
-      :hover
+      padding: 115px 10px
+      color: var(--theme_white)
+      text-decoration: none
+      &:hover
         background-color: var(--theme_dark_blue)
 </style>
