@@ -15,8 +15,7 @@ const props = defineProps({
   <section
     :class="[
       styl['template'], //
-      templates.length &&
-        templates.map(template => styl[`template--${template}`])
+      ...templates.map(template => styl[`template--${template}`])
     ]"
   >
     <template v-for="(slot, key) in slots">
@@ -35,6 +34,16 @@ const props = defineProps({
 .template
   display: flex
   flex-flow: row wrap
+  &--one
+    margin:  -10px 0
+    & ^[0]__item
+      flex: 0 0 calc(100% - 20px)
+      margin: 10px 0
+  &--two
+    margin: 0 -10px
+    & ^[0]__item
+      flex: 0 0 calc(50% - 20px)
+      margin: 0 10px
   &--justify-space-between
     justify-content: space-between
 </style>
