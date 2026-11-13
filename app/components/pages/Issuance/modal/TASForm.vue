@@ -117,8 +117,6 @@ onBeforeUnmount(() => {
   </div>
 </template>
 <style lang="stylus" module="styl">
-*
-  outline: 1px solid red
 .tas
   position: absolute
   top: 0

@@ -25,8 +25,40 @@ const selectForm = form => {
 </script>
 
 <template>
-  <h1>Issuance Form</h1>
-  <button @click="openIssuance">ADD ISSUANCE</button>
+  <div :class="styl['TopSection']">
+    <InlineTemplate
+      :slots="[0, 1]"
+      :templates="['two', 'align-center']"
+    >
+      <template #0>
+        <HeadingTemplate
+          :heading="{
+            title: {
+              level: 1,
+              text: 'Issuance Form',
+              templates: ['fs-30']
+            },
+            subtitle: {
+              level: 2,
+              text: 'Select a form to issue to cashier',
+              templates: ['fs-20']
+            }
+          }"
+        />
+      </template>
+      <template #1>
+        <div :class="styl['TopSection__btn']">
+          <ButtonTemplate
+            @click="openIssuance"
+            tag-type="button"
+            :attrs="add_button"
+          >
+            ADD ISSUANCE
+          </ButtonTemplate>
+        </div>
+      </template>
+    </InlineTemplate>
+  </div>
 
   <FormSelection
     v-if="is_issuance_status"
@@ -40,3 +72,9 @@ const selectForm = form => {
     <AFAS v-if="active_form === 'AFAS'" />
   </teleport>
 </template>
+<style lang="stylus" module="styl">
+.TopSection
+  padding-top: 50px
+  &__btn
+    text-align end
+</style>

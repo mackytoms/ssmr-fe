@@ -46,4 +46,6 @@ const props = defineProps({
       margin: 0 10px
   &--justify-space-between
     justify-content: space-between
+  &--align-center
+    align-items: center
 </style>

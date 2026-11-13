@@ -73,14 +73,22 @@ defineProps({
   overflow: hidden
   text-align: center
   pointer-events: auto
-  transition: .3s ease
-  cursor: pointer
+  &__link
+    position: relative
+    overflow: hidden
+    display: block
+    width: 100%
+    padding: 10px 15px
+    border-radius: 10px
+    cursor: pointer
+    transition: .3 ease
   &--primary__button
     & ^[0]__link
       background-color: var(--theme_blue)
-      padding: 115px 10px
       color: var(--theme_white)
       text-decoration: none
       &:hover
         background-color: var(--theme_dark_blue)
+  &--text-end
+    text-align:end
 </style>

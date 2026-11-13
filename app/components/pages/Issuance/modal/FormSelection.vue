@@ -14,19 +14,19 @@ const select = function (form) {
   >
     <div :class="styl['template__modal']">
       <div
-        :class="styl['template__modal-item']"
+        :class="styl['template__modal-tas']"
         @click="select('TAS')"
       >
         <h1>TAS</h1>
       </div>
       <div
-        :class="styl['template__modal-item']"
+        :class="styl['template__modal-pfas']"
         @click="select('PFAS')"
       >
         <h1>PFAS</h1>
       </div>
       <div
-        :class="styl['template__modal-item']"
+        :class="styl['template__modal-afas']"
         @click="select('AFAS')"
       >
         <h1>AFAS</h1>
@@ -59,6 +59,14 @@ const select = function (form) {
     background-color: white
     border-radius: 10px
     text-align: center
-    &-item
+    &-tas, &-pfas,&-afas
       margin: 0 10px
+      padding: 50px 100px
+      color: var(--theme_white)
+    &-tas
+      background-color: var(--theme_blue)
+    &-pfas
+      background-color: var(--theme_cyan_blue)
+    &-afas
+      background-color: var(--theme_shade_orange)
 </style>
