@@ -2,12 +2,26 @@
 import { useLinksStore } from '~/store/links'
 
 const links = useLinksStore().links
+
+const route = useRoute()
+const isActive = (to, path) =>
+  to === '/' ? path === '/' : path === to || path.startsWith(`${to}/`)
+
+watch(
+  () => route.path,
+  path => {
+    links.forEach(link => {
+      link.status = isActive(link.to, path)
+    })
+  },
+  { immediate: true }
+)
 </script>
 
 <template>
   <InlineTemplate
     :slots="[0, 1]"
-    :templates="['justify-space-between']"
+    :templates="['justify-space-between', 'align-center']"
     :class="styl['template']"
   >
     <template #0>
@@ -25,7 +39,10 @@ const links = useLinksStore().links
         >
           <NuxtLink
             :to="item.to"
-            :class="styl['template__list-item__link']"
+            :class="[
+              styl['template__list-item__link'],
+              { [styl['template__list-item__link--active']]: item.status }
+            ]"
           >
             {{ item.label }}
           </NuxtLink>
@@ -48,5 +65,10 @@ const links = useLinksStore().links
       list-style: none
       &__link
         color: black
+        text-transform: uppercase
         text-decoration: none
+        &:hover
+          font-weight: bold
+        &--active
+          font-weight: bold
 </style>
